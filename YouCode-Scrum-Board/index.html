@@ -20,11 +20,11 @@
 	<div id="app" class="app-without-sidebar">
 		<!-- BEGIN #content -->
 		<div id="content" class="app-content main-style">
-			<div class="">
+			<div class="d-flex justify-content-between">
 				<div>
-					<ol class="">
-						<li class=""><a href="javascript:;">Home</a></li>
-						<li class="">Scrum Board </li>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active"><a href="javascript:;">Home</a></li>
+						<li class="breadcrumb-item active">Scrum Board </li>
 					</ol>
 					<!-- BEGIN page-header -->
 					<h1 class="page-header">
@@ -33,19 +33,19 @@
 					<!-- END page-header -->
 				</div>
 				
-				<div class="">
-					<button class=""><i class=""></i> Add Task</a>
+				<div class="d-flex align-items-center">
+					<button class="btn btn-success btn-sm rounded-pill ""><i class="fa-solid fa-plus" style="color: rgb(73, 73, 73);"></i> Add Task</a>
 				</div>
 			</div>
 			
-			<div class="">
-				<div class="">
-					<div class="">
+			<div class="d-flex">
+				<div class="flex-fill">
+					<div class="bg-black rounded">
 						<div class="">
-							<h4 class="">To do (<span id="to-do-tasks-count">5</span>)</h4>
+							<h4 class=" text-white p-xl-1" style="font-size: 1.5em;">To do (<span id="to-do-tasks-count">5</span>)</h4>
 
 						</div>
-						<div class="" id="to-do-tasks">
+						<div class="d-flex flex-column" id="to-do-tasks">
 							<!-- TO DO TASKS HERE -->
 							<button class="">
 								<div class="">
@@ -134,13 +134,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="">
-					<div class="">
+				<div class="flex-fill">
+					<div class="bg-black rounded">
 						<div class="">
-							<h4 class="">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
+							<h4 class="text-white ">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
 
 						</div>
-						<div class="" id="in-progress-tasks">
+						<div class=" d-flex flex-column" id="in-progress-tasks">
 							<!-- IN PROGRESS TASKS HERE -->
 							<button class="">
 								<div class="">
@@ -209,13 +209,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="">
-					<div class="">
+				<div class="flex-fill">
+					<div class="bg-black rounded">
 						<div class="">
-							<h4 class="">Done (<span id="done-tasks-count">4</span>)</h4>
+							<h4 class="text-white ">Done (<span id="done-tasks-count">4</span>)</h4>
 
 						</div>
-						<div class=" " id="done-tasks">
+						<div class="d-flex flex-column " id="done-tasks">
 							<!-- DONE TASKS HERE -->
 							<button class="">
 								<div class="">
