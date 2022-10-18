@@ -35,7 +35,7 @@
 				</div>
 				
 				<div class="d-flex align-items-center">
-					<button class="btn btn-success btn-sm rounded-pill " data-bs-toggle="modal" data-bs-target="#modal-task" ><i class="fa-solid fa-plus" style="color: rgb(73, 73, 73);"></i> Add Task</a>
+					<button id="btn-Add" class="btn btn-success btn-sm rounded-pill " data-bs-toggle="modal" data-bs-target="#modal-task" ><i class="fa-solid fa-plus" style="color: rgb(73, 73, 73);"></i> Add Task</a>
 				</div>
 			</div>
 			
@@ -43,12 +43,12 @@
 				<div class=" p-1 col-lg-4 col-md-6 col-sm-12">
 					<div class=" bg-black rounded ">
 						<div class="">
-							<h4 class=" text-white p-2 fs-6 mb-0">To do (<span id="to-do-tasks-count">5</span>)</h4>
+							<h4 class=" text-white p-2 fs-6 mb-0">To do (<span id="to-do-tasks-count"></span>)</h4>
 
 						</div>
 						<div class="d-flex flex-column" id="to-do-tasks">
 							<!-- TO DO TASKS HERE -->
-							<button class=" row mx-0 bg-white p-1 border-0 border-bottom">
+							<!-- <button class=" row mx-0 bg-white p-1 border-0 border-bottom">
 								<div class="col-1">
 									<i class="bi bi-question-circle fs-3 text-success "></i> 
 								</div>
@@ -131,19 +131,19 @@
 										<span class="bg-light-600 p-1 rounded-1 fw-bold">Feature</span>
 									</div>
 								</div>
-							</button>
+							</button> -->
 						</div>
 					</div>
 				</div>
 				<div class=" p-1 col-lg-4 col-md-6 col-sm-12">
 					<div class="bg-black rounded">
 						<div class="">
-							<h4 class="text-white p-2 fs-6 mb-0">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
+							<h4 class="text-white p-2 fs-6 mb-0">In Progress (<span id="in-progress-tasks-count"></span>)</h4>
 
 						</div>
 						<div class=" d-flex flex-column" id="in-progress-tasks">
 							<!-- IN PROGRESS TASKS HERE -->
-							<button class="row mx-0 bg-white p-1 border-0 border-bottom">
+							<!-- <button class="row mx-0 bg-white p-1 border-0 border-bottom">
 								<div class="col-1">
 									<i class="spinner-border spinner-border-sm text-success mt-1"></i> 
 								</div>
@@ -206,19 +206,19 @@
 										<span class="bg-light-600 p-1 rounded-1 fw-bold">Feature</span>
 									</div>
 								</div>
-							</button>
+							</button> -->
 						</div>
 					</div>
 				</div>
 				<div class=" p-1 col-lg-4 col-md-6 col-sm-12">
 					<div class="bg-black rounded">
 						<div class="">
-							<h4 class="text-white p-2 fs-6 mb-0">Done (<span id="done-tasks-count">4</span>)</h4>
+							<h4 class="text-white p-2 fs-6 mb-0">Done (<span id="done-tasks-count"></span>)</h4>
 
 						</div>
 						<div class="d-flex flex-column " id="done-tasks">
 							<!-- DONE TASKS HERE -->
-							<button class="row mx-0 bg-white p-1 border-0 border-bottom">
+							<!-- <button class="row mx-0 bg-white p-1 border-0 border-bottom">
 								<div class="col-1">
 									<i class="bi bi-check-circle fs-3 text-success "></i> 
 								</div>
@@ -281,7 +281,7 @@
 										<span class="bg-light-600 p-1 rounded-1 fw-bold">Feature</span>
 									</div>
 								</div>
-							</button>
+							</button> -->
 						</div>
 					</div>
 				</div>
@@ -313,33 +313,30 @@
 						<label for="" class="col-form-label">Type</label>
 						<div class="form-check ms-3">
 							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-							<label class="form-check-label" for="flexRadioDefault1">
-							Feature
-							</label>
+							<label class="form-check-label" for="flexRadioDefault1">Feature</label>
 						</div>
 						<div class="form-check ms-3">
 							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-							<label class="form-check-label" for="flexRadioDefault2">
-								Bug
-							</label>
+							<label class="form-check-label" for="flexRadioDefault2">Bug</label>
 						</div>
 					</div>
 					<div class="mb-3">
 						<label for="Priority" class="col-form-label">Priority</label>
 						<select class="form-select" aria-label="Default select example" id="Priority">
 							<option selected>Please select</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
+							<option value="1">Low</option>
+							<option value="2">Medium</option>
+							<option value="3">High</option>
+							<option value="3">Critical</option>
 						</select>
 					</div>
 					<div class="mb-3">
 						<label for="Status" class="col-form-label">Status</label>
 						<select class="form-select" aria-label="Default select example" id="Status">
 							<option selected>Please select</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
+							<option value="1">To Do</option>
+							<option value="2">In Progress</option>
+							<option value="3">Done</option>
 						</select>
 					</div>
 					<div class="mb-3">
@@ -360,8 +357,10 @@
 	</div>
 	
 	<!-- ================== BEGIN core-js ================== -->
-	<script src="assets/js/vendor.min.js"></script>
+	<script src="assets/js/data.js"></script>
+	<script src="assets/js/app.js"></script>
 	<script src="assets/js/app.min.js"></script>
+	<script src="assets/js/vendor.min.js"></script>
 	<!-- ================== END core-js ================== -->
 </body>
 </html>
