@@ -6,10 +6,62 @@
 let toDoTasks = document.getElementById('to-do-tasks');
 let inProgressTasks = document.getElementById('in-progress-tasks');
 let doneTasks = document.getElementById('done-tasks');
+let countTodoTasks = document.getElementById('to-do-tasks-count');
+let countInProgressTasks = document.getElementById('in-progress-tasks-count');
+let countDoneTasks = document.getElementById('done-tasks-count');
+let modalTask = document.getElementById('modal-task');
+let title = document.getElementById('recipient-name');
+let Type = document.querySelector('.form-check-input:checked');
+let priority = document.getElementById('Priority');
+let Status = document.getElementById('Status');
+let date = document.getElementById('Date');
+let description = document.getElementById('message-text');
+document.getElementById('btn-save').addEventListener('click',createTask);
 
-addTasks();
+reloadTasks();
 
-function addTasks(){
+function createTask() {
+    // creat and add new task
+    let newTask = {
+        title : title.value,
+        type : Type.value,
+        priority : priority.value,
+        status : Status.value,
+        date : date.value,
+        description : description.value,
+    }
+    
+    tasks.push(newTask);
+    close();
+    clear();
+
+    console.log(tasks)
+    reloadTasks();
+    
+}
+
+function clairTasks(){
+    // clear all tasks
+    toDoTasks.innerHTML = "";
+    inProgressTasks.innerHTML = "";
+    doneTasks.innerHTML = "";
+}
+
+
+function close(){
+    document.getElementById("btn-close").click();
+}
+
+function clear(){
+  document.getElementById('form').reset();
+}
+
+
+function reloadTasks() {
+    // Remove tasks elements
+    clairTasks();
+
+    // all tasks
     let count = 0;
     let countTodo = 0, countInProgress = 0, countDone = 0;
 
@@ -25,10 +77,10 @@ function addTasks(){
                 <i class="bi bi-question-circle fs-3 text-success "></i> 
                 </div>
                 <div class="col-10 text-start">
-                <div class="fw-bold fs-5">${element['title']}</div>
+                <div class="fw-bold fs-5 text-truncate">${element['title']}</div>
                 	<div class="">
                 		<div class="text-black-50">#${count} created in ${element['date']}</div>
-                		<div class="mb-2" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">${element['description']}</div>
+                		<div class="mb-2 text-truncate" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">${element['description']}</div>
                 	</div>
                 	<div class="pb-1">
                 		<span class="bg-primary text-white p-1 rounded-1 fw-bold">${element['priority']}</span>
@@ -48,10 +100,10 @@ function addTasks(){
                 <i class="spinner-border spinner-border-sm text-success mt-1"></i> 
                 </div>
                 <div class="col-10 text-start">
-                <div class="fw-bold fs-5">${element['title']}</div>
+                <div class="fw-bold fs-5 text-truncate">${element['title']}</div>
                 	<div class="">
                 		<div class="text-black-50">#${count} created in ${element['date']}</div>
-                		<div class="mb-2" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">${element['description']}</div>
+                		<div class="mb-2 text-truncate" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">${element['description']}</div>
                 	</div>
                 	<div class="pb-1">
                 		<span class="bg-primary text-white p-1 rounded-1 fw-bold">${element['priority']}</span>
@@ -70,10 +122,10 @@ function addTasks(){
                 <i class="bi bi-check-circle fs-3 text-success "></i> 
                 </div>
                 <div class="col-10 text-start">
-                <div class="fw-bold fs-5">${element['title']}</div>
+                <div class="fw-bold fs-5 text-truncate">${element['title']}</div>
                 	<div class="">
                 		<div class="text-black-50">#${count} created in ${element['date']}</div>
-                		<div class="mb-2" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">${element['description']}</div>
+                		<div class="mb-2 text-truncate" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">${element['description']}</div>
                 	</div>
                 	<div class="pb-1">
                 		<span class="bg-primary text-white p-1 rounded-1 fw-bold">${element['priority']}</span>
@@ -85,85 +137,64 @@ function addTasks(){
         }
     })
 
-    let countTodoTasks = document.getElementById('to-do-tasks-count');
-    let countInProgressTasks = document.getElementById('in-progress-tasks-count');
-    let countDoneTasks = document.getElementById('done-tasks-count');
-
     countTodoTasks.innerText = countTodo;
     countInProgressTasks.innerText = countInProgress;
     countDoneTasks.innerText = countDone;
 
 }
-
-function createTask() {
-    // initialiser task form
-
-    // Afficher le boutton save
-
-    // Ouvrir modal form
-
-    let buttonAdd = document.getElementById('btn-Add');
-    let modalTask = document.getElementById('modal-task');
-    let buttonClose = document.getElementsByClassName('btn-close');
+// function saveTask() {
+//     // Recuperer task attributes a partir les champs input
     
-}
-
-function saveTask() {
-    // Recuperer task attributes a partir les champs input
-
-    // Créez task object
-
-    // Ajoutez object au Array
-
-    // refresh tasks
+//     // Créez task object
     
-}
+//     // Ajoutez object au Array
 
-function editTask(index) {
-    // Initialisez task form
-
-    // Affichez updates
-
-    // Delete Button
-
-    // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
-
-    // Definir FORM INPUTS
-
-    // Ouvrir Modal form
-}
-
-function updateTask() {
-    // GET TASK ATTRIBUTES FROM INPUTS
-
-    // Créez task object
-
-    // Remplacer ancienne task par nouvelle task
-
-    // Fermer Modal form
-
-    // Refresh tasks
+//     // refresh tasks
     
-}
+// }
 
-function deleteTask() {
-    // Get index of task in the array
+// function editTask(index) {
+//     // Initialisez task form
 
-    // Remove task from array by index splice function
+//     // Affichez updates
 
-    // close modal form
+//     // Delete Button
 
-    // refresh tasks
-}
+//     // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
 
-function initTaskForm() {
-    // Clear task form from data
+//     // Definir FORM INPUTS
 
-    // Hide all action buttons
-}
+//     // Ouvrir Modal form
+// }
 
-function reloadTasks() {
-    // Remove tasks elements
+// function updateTask() {
+//     // GET TASK ATTRIBUTES FROM INPUTS
 
-    // Set Task count
-}
+//     // Créez task object
+
+//     // Remplacer ancienne task par nouvelle task
+
+//     // Fermer Modal form
+
+//     // Refresh tasks
+    
+// }
+
+// function deleteTask() {
+//     // Get index of task in the array
+
+//     // Remove task from array by index splice function
+
+//     // close modal form
+
+//     // refresh tasks
+// }
+
+// function initTaskForm() {
+//     // Clear task form from data
+//     // modalTask.reset();
+
+//     // Hide all action buttons
+// }
+
+
