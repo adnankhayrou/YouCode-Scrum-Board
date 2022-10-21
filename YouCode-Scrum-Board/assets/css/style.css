@@ -8,3 +8,11 @@
     background-size: 360px;
     background-position: right bottom;
 }
+
+
+.trash-icon{
+    display: none;
+}
+.btn-tasks:hover .trash-icon{
+    display: block;
+}

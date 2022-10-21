@@ -34,7 +34,6 @@ function createTask() {
     tasks.push(newTask);
     close();
     clear();
-
     console.log(tasks)
     reloadTasks();
     
@@ -56,6 +55,17 @@ function clear(){
   document.getElementById('form').reset();
 }
 
+function editTask () {
+    
+}
+
+function deleteTask (d) {
+    d.parentElement.parentElement.parentElement.remove();
+}
+
+// let deleteTask = (d) => {
+//     d.parentElement.parentElement.parentElement.remove();
+// }
 
 function reloadTasks() {
     // Remove tasks elements
@@ -72,7 +82,7 @@ function reloadTasks() {
 
             countTodo++;
             toDoTasks.innerHTML += `
-            <button class="row mx-0 bg-white p-1 border-0 border-bottom">
+            <button class="row mx-0 bg-white p-1 border-0 border-bottom btn-tasks">
                 <div class="col-1">
                 <i class="bi bi-question-circle fs-3 text-success "></i> 
                 </div>
@@ -87,6 +97,11 @@ function reloadTasks() {
                 		<span class="bg-light-600 p-1 rounded-1 fw-bold">${element['type']}</span>
                 	</div>
                 </div>
+                <div class="col-1">
+                  <span>
+                    <i onClick="deleteTask(this)" class="fas fa-trash-alt fs-5 text-danger pt-2 trash-icon"></i>
+                  </span>
+               </div>
         	</button>`
             
             
@@ -95,7 +110,7 @@ function reloadTasks() {
             countInProgress++;
 
             inProgressTasks.innerHTML += `
-            <button class="row mx-0 bg-white p-1 border-0 border-bottom">
+            <button class="row mx-0 bg-white p-1 border-0 border-bottom btn-tasks">
                 <div class="col-1">
                 <i class="spinner-border spinner-border-sm text-success mt-1"></i> 
                 </div>
@@ -110,6 +125,11 @@ function reloadTasks() {
                 		<span class="bg-light-600 p-1 rounded-1 fw-bold">${element['type']}</span>
                 	</div>
                 </div>
+                <div class="col-1">
+                  <span>
+                    <i onClick="deleteTask(this)" class="fas fa-trash-alt fs-5 text-danger pt-2 trash-icon"></i>
+                  </span>
+               </div>
         	</button>`
             
         }else if (element['status'] == 'Done') {
@@ -117,9 +137,10 @@ function reloadTasks() {
             countDone++;
 
             doneTasks.innerHTML += `
-            <button class="row mx-0 bg-white p-1 border-0 border-bottom">
+            <button class="row mx-0 bg-white p-1 border-0 border-bottom btn-tasks">
+                 
                 <div class="col-1">
-                <i class="bi bi-check-circle fs-3 text-success "></i> 
+                    <i class="bi bi-check-circle fs-3 text-success "></i> 
                 </div>
                 <div class="col-10 text-start">
                 <div class="fw-bold fs-5 text-truncate">${element['title']}</div>
@@ -132,6 +153,11 @@ function reloadTasks() {
                 		<span class="bg-light-600 p-1 rounded-1 fw-bold">${element['type']}</span>
                 	</div>
                 </div>
+                <div class="col-1">
+                  <span>
+                    <i onClick="deleteTask(this)" class="fas fa-trash-alt fs-5 text-danger pt-2 trash-icon"></i>
+                  </span>
+               </div>
         	</button>`
             
         }
@@ -142,6 +168,8 @@ function reloadTasks() {
     countDoneTasks.innerText = countDone;
 
 }
+
+
 // function saveTask() {
 //     // Recuperer task attributes a partir les champs input
     
