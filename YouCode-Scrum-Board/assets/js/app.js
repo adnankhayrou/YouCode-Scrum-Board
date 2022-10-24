@@ -22,11 +22,11 @@
  document.querySelector('#btn-cancel').addEventListener('click',clearForm);
  document.querySelector('#btn-close').addEventListener('click',clearForm);
  buttonUpdate.style.display = "none";
- 
- 
+   
  reloadTasks();
  
  function createTask() {
+  
   let Type = document.querySelector('.form-check-input:checked');
 
      // creat and add new task
@@ -63,6 +63,8 @@
  }
  
  function clearForm(){
+  buttonUpdate.style.display = "none";
+  buttonSave.style.display = "block";
    // clear form inputs from data
    document.getElementById('form').reset();
  }
