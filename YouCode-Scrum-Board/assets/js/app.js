@@ -2,7 +2,6 @@
  * In this file app.js you will find all CRUD functions name.
  * 
  */
-
  let toDoTasks = document.getElementById('to-do-tasks');
  let inProgressTasks = document.getElementById('in-progress-tasks');
  let doneTasks = document.getElementById('done-tasks');
@@ -11,7 +10,6 @@
  let countDoneTasks = document.getElementById('done-tasks-count');
  let modalTask = document.getElementById('modal-task');
  let title = document.getElementById('recipient-name');
- let Type = document.querySelector('.form-check-input:checked');
  let priority = document.getElementById('Priority');
  let Status = document.getElementById('Status');
  let date = document.getElementById('Date');
@@ -29,6 +27,8 @@
  reloadTasks();
  
  function createTask() {
+  let Type = document.querySelector('.form-check-input:checked');
+
      // creat and add new task
      let newTask = {
          title : title.value,
@@ -51,12 +51,7 @@
      reloadTasks();  
  }
  
- function clearTasks(){
-     // clear all tasks
-     toDoTasks.innerHTML = "";
-     inProgressTasks.innerHTML = "";
-     doneTasks.innerHTML = "";
- }
+ 
  
  
  function close(){
@@ -82,6 +77,7 @@
  var newValue;
  
  function editTask (index) {
+  
    // hide save button and enable update button
    buttonSave.style.display = "none";
    buttonUpdate.style.display = "block";
@@ -103,6 +99,7 @@
    }
  
    function update() {
+    let Type = document.querySelector('.form-check-input:checked');
      // replace old values with new values
      tasks[newValue].title = title.value;
      tasks[newValue].type = Type.value;
@@ -119,7 +116,14 @@
      buttonSave.style.display = "block";
      buttonUpdate.style.display = "none";
    }
- 
+   
+ function clearTasks(){
+     // clear all tasks
+     toDoTasks.innerHTML = "";
+     inProgressTasks.innerHTML = "";
+     doneTasks.innerHTML = "";
+ }
+
  function reloadTasks() {
    // Remove tasks elements
    clearTasks();
@@ -138,7 +142,7 @@
            toDoTasks.innerHTML += `
            <button class="row mx-0 bg-white p-1 border-0 border-bottom btn-tasks">
                <div class="col-1">
-               <i class="bi bi-question-circle fs-3 text-success "></i> 
+                 <i class="bi bi-question-circle fs-3 text-success "></i> 
                </div>
                <div class="col-10 text-start">
                <div class="fw-bold fs-5 text-truncate">${tasks[i].title}</div>
@@ -224,6 +228,12 @@
    countDoneTasks.innerText = countDone;
  
  }
+
+
+
+
+
+
 
 // function saveTask() {
 //     // Recuperer task attributes a partir les champs input
