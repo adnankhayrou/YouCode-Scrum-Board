@@ -5,10 +5,6 @@
  let toDoTasks = document.getElementById('to-do-tasks');
  let inProgressTasks = document.getElementById('in-progress-tasks');
  let doneTasks = document.getElementById('done-tasks');
- let countTodoTasks = document.getElementById('to-do-tasks-count');
- let countInProgressTasks = document.getElementById('in-progress-tasks-count');
- let countDoneTasks = document.getElementById('done-tasks-count');
- let modalTask = document.getElementById('modal-task');
  let title = document.getElementById('recipient-name');
  let priority = document.getElementById('Priority');
  let Status = document.getElementById('Status');
@@ -70,13 +66,14 @@
  }
  
  function deleteTask (Delete) {
+    if(confirm('prees ok!') == true){
    // remove task
      tasks.splice(Delete,1)
-     reloadTasks();
+     reloadTasks();}
  }
  
- //giving index to be global variable
- var newValue;
+ //giving index to a global variable
+ let newValue;
  
  function editTask (index) {
   
@@ -127,6 +124,10 @@
  }
 
  function reloadTasks() {
+  let countTodoTasks = document.getElementById('to-do-tasks-count');
+  let countInProgressTasks = document.getElementById('in-progress-tasks-count');
+  let countDoneTasks = document.getElementById('done-tasks-count');
+
    // Remove tasks elements
    clearTasks();
  
