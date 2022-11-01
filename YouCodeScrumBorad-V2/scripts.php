@@ -9,6 +9,7 @@
     if(isset($_POST['update']))      updateTask();
     if(isset($_POST['delete']))      deleteTask();
     $count = 0;
+
     function getTasks($Status)
     {
         require 'database.php';
@@ -43,7 +44,7 @@
                  <i class="'.$icon.'"></i> 
                </div>
                <div class="col-10 text-start">
-               <div "class="fw-bold fs-5 text-truncate">'.$element['title'].'</div>
+               <div class="fw-bold fs-5 text-truncate">'.$element['title'].'</div>
                  <div >
                    <div class="text-black-50">#'.$count.' created in '.$element['task_date'].' </div>
                    <div class="mb-2 text-truncate" title="as they can be helpful in reproducing the steps that caused the problem in the first place."> '.$element['description'].' </div>
@@ -54,7 +55,6 @@
                  </div>
                </div>
          </button>';
-           
         }
         
         // SQL SELECT
@@ -77,7 +77,7 @@
         $sendTo = "INSERT INTO tasks(`title`, `type_id`, `priority_id`, `status_id`, `task_date`, `description`) 
             VALUES('$Title', '$Type', '$Priority', '$Status', '$Date', '$Description')";
     
-        $query = mysqli_query($connect,$sendTo);
+        mysqli_query($connect,$sendTo);
 
         //SQL INSERT
         $_SESSION['message'] = "Task has been added successfully !";
@@ -107,6 +107,7 @@
     function deleteTask()
     {
       require 'database.php';
+      
         //CODE HERE
         $id = $_POST['id'];
         $sql = "DELETE FROM tasks WHERE id='$id'";
@@ -118,7 +119,8 @@
 
 
 
-    function counter($Status) {
+    function counter($Status) 
+    {
       require 'database.php';
 
       $countAllRows = "SELECT * FROM tasks WHERE status_id = '$Status' ";
