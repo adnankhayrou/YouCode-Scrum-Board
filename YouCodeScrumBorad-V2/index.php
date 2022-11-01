@@ -222,7 +222,7 @@
 				</div>
 				
 				<div class="ms-auto">
-				<a href="#modal-task" data-bs-toggle="modal" class="btn btn-success btn-rounded px-4 rounded-pill"><i class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add Task</a>
+				<a onClick="hideUpdateAndDelete()" href="#modal-task" data-bs-toggle="modal" class="btn btn-success btn-rounded px-4 rounded-pill"><i class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add Task</a>
 				</div>
 			</div>
 			
@@ -338,7 +338,7 @@
 					</div>
 					<div class="modal-body">
 							<!-- This Input Allows Storing Task Index  -->
-							<input type="hidden" id="task-id">
+							<input type="text" name="id" id="task-id">
 							<div class="mb-3">
 								<label class="form-label">Title</label>
 								<input type="text" name="Title" class="form-control" id="task-title"/>
@@ -387,9 +387,9 @@
 						
 					</div>
 					<div class="modal-footer">
-						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-						<button type="submit" name="delete" class="btn btn-danger task-action-btn" id="task-delete-btn">Delete</a>
-						<button type="submit" name="update" class="btn btn-warning task-action-btn" id="task-update-btn">Update</a>
+						<a href="#" class="btn btn-white" data-bs-dismiss="modal" id="task-cancel-btn">Cancel</a>
+						<button type="submit" name="delete" class="btn btn-danger task-action-btn" id="task-delete-btn">Delete</button>
+						<button type="submit" name="update" class="btn btn-warning task-action-btn" id="task-update-btn">Update</button>
 						<button type="submit" name="save" class="btn btn-primary task-action-btn" id="task-save-btn">Save</button>
 					</div>
 				</form>

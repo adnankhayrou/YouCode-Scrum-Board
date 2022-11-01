@@ -8,18 +8,19 @@
     if(isset($_POST['save']))        saveTask();
     if(isset($_POST['update']))      updateTask();
     if(isset($_POST['delete']))      deleteTask();
-
+    $count = 0;
     function getTasks($Status)
     {
         require 'database.php';
         // CODE HERE
         $selectFrom = "SELECT * FROM tasks WHERE status_id = '$Status' ";
-
         $query = mysqli_query($connect,$selectFrom);
+        global $count;
 
-        $count = 0;
         while ($element = mysqli_fetch_array($query)) {
+          
             $count++;
+
            $priority_id =  $element['priority_id'];
             $query_priority = "SELECT * FROM priorities WHERE id = ${priority_id} ";
             $query_res = mysqli_query($connect,$query_priority);
@@ -37,19 +38,19 @@
             }else $icon = 'bi bi-check-circle fs-3 text-success';
         
            echo '
-           <button onClick() class="row mx-0 bg-white p-1 border-0 border-bottom btn-tasks">
+           <button onClick="editTask(this,'.$element['id'].')" data-bs-toggle="modal" href="#modal-task" class="row mx-0 bg-white p-1 border-0 border-bottom btn-tasks">
                <div class="col-1">
-                 <i class="'.$icon.' "></i> 
+                 <i class="'.$icon.'"></i> 
                </div>
                <div class="col-10 text-start">
-               <div class="fw-bold fs-5 text-truncate">'.$element['title'].'</div>
+               <div "class="fw-bold fs-5 text-truncate">'.$element['title'].'</div>
                  <div >
                    <div class="text-black-50">#'.$count.' created in '.$element['task_date'].' </div>
                    <div class="mb-2 text-truncate" title="as they can be helpful in reproducing the steps that caused the problem in the first place."> '.$element['description'].' </div>
                  </div>
                  <div class="pb-1">
                    <span class="bg-primary text-white p-1 rounded-1 fw-bold"> '.$priority_res['name'].' </span>
-                   <span class="bg-light-600 p-1 rounded-1 fw-bold"> '.$type_res['name'].' </span>
+                   <span class="bg-light-600 p-1 rounded-1 m-1 fw-bold"> '.$type_res['name'].' </span>
                  </div>
                </div>
          </button>';
@@ -80,23 +81,39 @@
 
         //SQL INSERT
         $_SESSION['message'] = "Task has been added successfully !";
-		header('location: index.php');
+		    header('location: index.php');
     }
 
     function updateTask()
     {
         //CODE HERE
+        $id = $_POST['id'];
+        $Title = $_POST['Title'];
+        $Type = $_POST['task-type'];
+        $Priority = $_POST['Priority'];
+        $Status = $_POST['Status'];
+        $Date = $_POST['Date'];
+        $Description = $_POST['Description'];
+        
+        require 'database.php';
+
+        $updateFrom = "UPDATE tasks SET title = '$Title', description = '$Description', type_id = '$Type', priority_id = '$Priority', status_id = '$Status', task_date = '$Date' WHERE id = '$id'";
+        mysqli_query($connect,$updateFrom);
         //SQL UPDATE
         $_SESSION['message'] = "Task has been updated successfully !";
-		header('location: index.php');
+		    header('location: index.php');
     }
 
     function deleteTask()
     {
+      require 'database.php';
         //CODE HERE
+        $id = $_POST['id'];
+        $sql = "DELETE FROM tasks WHERE id='$id'";
+         $result= mysqli_query($connect,$sql);
         //SQL DELETE
         $_SESSION['message'] = "Task has been deleted successfully !";
-		header('location: index.php');
+		    header('location: index.php');
     }
 
 
@@ -104,12 +121,12 @@
     function counter($Status) {
       require 'database.php';
 
-      $countAllRows = "SELECT COUNT(*) FROM tasks WHERE status_id = '$Status' ";
+      $countAllRows = "SELECT * FROM tasks WHERE status_id = '$Status' ";
 
       $query1 = mysqli_query($connect,$countAllRows); 
-      $count1 = mysqli_fetch_array($query1);
+      $count1 = mysqli_num_rows($query1);
       
-      return $count1[0];
+      return $count1;
     }
 
 ?>
