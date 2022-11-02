@@ -14,6 +14,7 @@
 	<!-- ================== BEGIN core-css ================== -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="assets/css/vendor.min.css" rel="stylesheet" />
+	<link href="assets/css/default/style.css" rel="stylesheet" />
 	<link href="assets/css/default/app.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<!-- ================== END core-css ================== -->
@@ -338,20 +339,20 @@
 					</div>
 					<div class="modal-body">
 							<!-- This Input Allows Storing Task Index  -->
-							<input type="text" name="id" id="task-id">
+							<input type="hidden" name="id" id="task-id">
 							<div class="mb-3">
 								<label class="form-label">Title</label>
-								<input type="text" name="Title" class="form-control" id="task-title"/>
+								<input type="text" name="Title" class="form-control" id="task-title" required/>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Type</label>
 								<div class="ms-3">
 									<div class="form-check mb-1">
-										<input class="form-check-input" name="task-type" type="radio" value="1" id="task-type-feature"/>
+										<input class="form-check-input" name="task-type" type="radio" value="1" id="task-type-feature" required/>
 										<label class="form-check-label" for="task-type-feature">Feature</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" name="task-type" type="radio" value="2" id="task-type-bug"/>
+										<input class="form-check-input" name="task-type" type="radio" value="2" id="task-type-bug" required/>
 										<label class="form-check-label" for="task-type-bug">Bug</label>
 									</div>
 								</div>
@@ -359,7 +360,7 @@
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Priority</label>
-								<select class="form-select" name="Priority" id="task-priority">
+								<select class="form-select" name="Priority" id="task-priority" required>
 									<option value="">Please select</option>
 									<option value="1">Low</option>
 									<option value="2">Medium</option>
@@ -369,7 +370,7 @@
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Status</label>
-								<select class="form-select" name="Status" id="task-status">
+								<select class="form-select" name="Status" id="task-status" required>
 									<option value="">Please select</option>
 									<option value="1">To Do</option>
 									<option value="2">In Progress</option>
@@ -378,11 +379,11 @@
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Date</label>
-								<input type="date" name="Date" class="form-control" id="task-date"/>
+								<input type="date" name="Date" class="form-control" id="task-date"/ required>
 							</div>
 							<div class="mb-0">
 								<label class="form-label">Description</label>
-								<textarea class="form-control" name="Description" rows="10" id="task-description"></textarea>
+								<textarea class="form-control" name="Description" rows="10" id="task-description" required></textarea>
 							</div>
 						
 					</div>
