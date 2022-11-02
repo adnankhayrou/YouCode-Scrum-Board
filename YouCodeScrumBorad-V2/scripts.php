@@ -18,19 +18,19 @@
         $query = mysqli_query($connect,$selectFrom);
         global $count;
 
-        while ($element = mysqli_fetch_array($query)) {
+        while ($element = mysqli_fetch_assoc($query)) {
           
             $count++;
 
            $priority_id =  $element['priority_id'];
             $query_priority = "SELECT * FROM priorities WHERE id = ${priority_id} ";
             $query_res = mysqli_query($connect,$query_priority);
-            $priority_res =  mysqli_fetch_array($query_res);
+            $priority_res =  mysqli_fetch_assoc($query_res);
 
             $type_id = $element['type_id'];
             $query_type = "SELECT * FROM types WHERE id = ${type_id} ";
             $query_prio = mysqli_query($connect,$query_type);
-            $type_res = mysqli_fetch_array($query_prio);
+            $type_res = mysqli_fetch_assoc($query_prio);
 
             if ($Status == 1) {
                $icon = 'bi bi-question-circle fs-3 text-success';
