@@ -45,17 +45,17 @@
 							<input type="hidden" name="id" id="task-id" value="<?php echo $id ?>">
 							<div class="mb-3">
 								<label class="form-label"></label>
-								<input type="text" name="Title" class="form-control" value="<?php echo $task["title"] ?>" id="task-title"/>
+								<input type="text" name="Title" class="form-control" value="<?php echo $task["title"] ?>" id="task-title" required/>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Type</label>
 								<div class="ms-3">
 									<div class="form-check mb-1">
-										<input <?php echo ($task['type_id']== '1') ?  "checked" : "" ;?> class="form-check-input" name="task-type" type="radio" value="1" id="task-type-feature"/>
+										<input <?php echo ($task['type_id']== '1') ?  "checked" : "" ;?> class="form-check-input" name="task-type" type="radio" value="1" id="task-type-feature" required/>
 										<label class="form-check-label" for="task-type-feature">Feature</label>
 									</div>
 									<div class="form-check">
-										<input <?php echo ($task['type_id']== '2') ?  "checked" : "" ;?> class="form-check-input" name="task-type" type="radio" value="2" id="task-type-bug"/>
+										<input <?php echo ($task['type_id']== '2') ?  "checked" : "" ;?> class="form-check-input" name="task-type" type="radio" value="2" id="task-type-bug" required/>
 										<label class="form-check-label" for="task-type-bug">Bug</label>
 									</div>
 								</div>
@@ -63,7 +63,7 @@
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Priority</label>
-								<select class="form-select" name="Priority" id="task-priority">
+								<select class="form-select" name="Priority" id="task-priority" required>
 									<option value="">Please select</option>
 									<option value="1"<?php echo ($task['priority_id']== '1') ?  "selected" : "" ;?>>Low</option>
 									<option value="2"<?php echo ($task['priority_id']== '2') ?  "selected" : "" ;?>>Medium</option>
@@ -73,7 +73,7 @@
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Status</label>
-								<select class="form-select" name="Status" id="task-status">
+								<select class="form-select" name="Status" id="task-status" required>
 									<option value="">Please select</option>
 									<option value="1"<?php echo ($task['status_id']== '1') ?  "selected" : "" ;?>>To Do</option>
 									<option value="2"<?php echo ($task['status_id']== '2') ?  "selected" : "" ;?>>In Progress</option>
@@ -82,11 +82,11 @@
 							</div>
 							<div class="mb-3">
 								<label class="form-label"></label>
-								<input type="date" name="Date" class="form-control" id="task-date" value="<?php echo $task["task_date"] ?>"/>
+								<input type="date" name="Date" class="form-control" id="task-date" value="<?php echo $task["task_date"] ?>" required/>
 							</div>
 							<div class="mb-0">
 								<label class="form-label">Description</label>
-								<textarea class="form-control" name="Description" rows="10" id="task-description"><?php echo $task["description"] ?></textarea>
+								<textarea class="form-control" name="Description" rows="10" id="task-description" required><?php echo $task["description"] ?></textarea>
 							</div>
 						
 					</div>

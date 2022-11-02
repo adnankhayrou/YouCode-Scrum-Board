@@ -85,7 +85,7 @@
         mysqli_query($connect,$sendTo);
 
         //SQL INSERT
-        $_SESSION['message'] = "Task has been added successfully !";
+        // $_SESSION['message'] = "Task has been added successfully !";
 		    header('location: index.php');
     }
 
@@ -105,7 +105,7 @@
         $updateFrom = "UPDATE tasks SET title = '$Title', description = '$Description', type_id = '$Type', priority_id = '$Priority', status_id = '$Status', task_date = '$Date' WHERE id = '$id'";
         mysqli_query($connect,$updateFrom);
         //SQL UPDATE
-        $_SESSION['message'] = "Task has been updated successfully !";
+        // $_SESSION['message'] = "Task has been updated successfully !";
 		    header('location: index.php');
     }
 
@@ -118,7 +118,7 @@
         $sql = "DELETE FROM tasks WHERE id='$id'";
          $result= mysqli_query($connect,$sql);
         //SQL DELETE
-        $_SESSION['message'] = "Task has been deleted successfully !";
+        // $_SESSION['message'] = "Task has been deleted successfully !";
 		    header('location: index.php');
     }
 
