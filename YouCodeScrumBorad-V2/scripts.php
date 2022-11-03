@@ -39,7 +39,7 @@
             }else $icon = 'bi bi-check-circle fs-3 text-success';
             // data-bs-toggle="modal" href="#modal-task"
            echo '
-           <button onClick="editTask(this,'.$element['id'].')"  class="row mx-0 bg-white p-1 border-0 border-bottom btn-tasks">
+           <button class="row mx-0 bg-white p-1 border-0 border-bottom btn-tasks">
                <div class="col-1">
                  <i class="'.$icon.'"></i> 
                </div>
@@ -56,7 +56,7 @@
                </div>
                <div class="col-1">
                  <span>
-                   <a href="update.php?edit='.$element['id'].'" ><i class="fas fa-edit fs-5 pt-2 edit-icon"></i></a>
+                   <a href="update.php?id='.$element['id'].'" ><i class="fas fa-edit fs-5 pt-2 edit-icon"></i></a>
                  </span>
               </div>
          </button>';

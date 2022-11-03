@@ -11,9 +11,9 @@ function hideUpdateAndDelete () {
     btnSave.style.display = 'block';
 }
 
-function editTask (e,id) {
+function editTask () {
 
-    document.getElementById('task-id').value = id;
+    // document.getElementById('task-id').value = id;
 
     btnCancel.style.display = 'block';
     btnSave.style.display = 'none';
