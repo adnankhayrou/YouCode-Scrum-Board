@@ -1,26 +1,24 @@
-let btnCancel = document.querySelector('#task-cancel-btn');
-let btnDelete = document.querySelector('#task-delete-btn');
-let btnUpdate = document.querySelector('#task-update-btn');
-let btnSave = document.querySelector('#task-save-btn');
+// let btnCancel = document.querySelector('#task-cancel-btn');
+// let btnDelete = document.querySelector('#task-delete-btn');
+// let btnUpdate = document.querySelector('#task-update-btn');
+// let btnSave = document.querySelector('#task-save-btn');
 
 
-function hideUpdateAndDelete () {
-    btnUpdate.style.display = 'none';
-    btnDelete.style.display = 'none';
-    btnCancel.style.display = 'block';
-    btnSave.style.display = 'block';
-}
+// function hideUpdateAndDelete () {
+//     btnUpdate.style.display = 'none';
+//     btnDelete.style.display = 'none';
+//     btnCancel.style.display = 'block';
+//     btnSave.style.display = 'block';
+// }
 
-function editTask () {
+// function editTask () {
 
-    // document.getElementById('task-id').value = id;
+//     btnCancel.style.display = 'block';
+//     btnSave.style.display = 'none';
+//     btnUpdate.style.display = 'block';
+//     btnDelete.style.display = 'block';
 
-    btnCancel.style.display = 'block';
-    btnSave.style.display = 'none';
-    btnUpdate.style.display = 'block';
-    btnDelete.style.display = 'block';
-
-}
+// }
 
 
 // document.getElementById('task-delete-btn').addEventListener('click',Delelte);
