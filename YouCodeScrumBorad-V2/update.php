@@ -15,8 +15,6 @@
 ?>
 
 <body>
-    
-
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form action="" method="POST" id="form-task">
@@ -87,15 +85,6 @@
 <?php 
    }
 ?>
-<script>  
-
-document.getElementById('task-delete-btn').addEventListener('click',Delelte);
-
-function Delelte () {
-    if(confirm('prees ok!') == true)
-    document.getElementById("delete-btn").click();  
-}
-
-</script>
+<script src="scripts.js"></script>
 </body>
 </html>

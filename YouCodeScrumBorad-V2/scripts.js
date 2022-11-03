@@ -21,10 +21,10 @@
 // }
 
 
-// document.getElementById('task-delete-btn').addEventListener('click',Delelte);
-// function Delelte () {
+document.getElementById('task-delete-btn').addEventListener('click',Delelte);
+function Delelte () {
 
-//     if(confirm('prees ok!') == true)
-//     document.getElementById("delete-btn").click();
+    if(confirm('prees ok!') == true)
+    document.getElementById("delete-btn").click();
     
-// }
+}
